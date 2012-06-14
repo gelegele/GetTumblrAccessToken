@@ -6,15 +6,17 @@ require 'net/http'
 require 'haml'
 require 'sass'
 require 'oauth'
+require 'pp'
 
 use Rack::Session::Pool, :expire_after => 2592000 # instead of "enable :sessions" to encrypt
-
 
 configure do
     Log = Logger.new(STDOUT)
     if ENV["http_proxy"]
         Log.info "http_proxy ==> #{ENV["http_proxy"]}"
     end
+    @CALLBACK_URL = 'http://gettumblraccesstoken/callback'
+    #@CALLBACK_URL = 'http://localhost:4567/callback'
 end
 
 
@@ -38,7 +40,9 @@ post '/' do
             :proxy=>ENV["http_proxy"],
             :request_token_url => 'http://www.tumblr.com/oauth/request_token'
         })
+    #request_token = consumer.get_request_token({:oauth_callback=>"http://gettumblraccesstoken/callback"})
     request_token = consumer.get_request_token
+    pp request_token
     authorize_url = request_token.authorize_url
     Log.info "authorize_url===>#{authorize_url}"
 
