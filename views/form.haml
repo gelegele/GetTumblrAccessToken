@@ -1,0 +1,37 @@
+!!! XML
+!!!
+%html
+  %head
+    %title Get Tumblr Access Token
+    %meta{:name=>"viewport", :content=>"width=device-width, initial-scale=1.0"}
+    %link{:href=>"bootstrap/css/bootstrap.min.css", :type=>"text/css", :rel=>"stylesheet"}
+    %link{:href=>"bootstrap/css/bootstrap-responsive.min.css", :type=>"text/css", :rel=>"stylesheet"}
+    %link{:rel=>"stylesheet", :type=>"text/css", :href=>"/style.css"}
+
+  %body
+    %div.container
+
+      %div.page-header
+        %h1
+          %a.page-title{:href=>"/"} Get Tumblr Access Token
+
+      %form.form-horizontal
+        %legend Input your Tumblr application's OAuth keys.
+        %div.control-group
+          %label.control-label Consumer Key
+          %div.controls
+            %input.input-xxlarge{:id=>"consumer_key"}
+        %div.control-group
+          %label.control-label Secret Key
+          %div.controls
+            %input.input-xxlarge{:id=>"secret_key"}
+        %div.form-actions
+          %button.btn.btn-primary Request access token
+
+      %footer.footer
+        %p Designed and built by gelegele.
+
+    %script{:type=>"text/javascript", :src=>"jquery/jquery.js"}
+    %script{:type=>"text/javascript", :src=>"jquery/jquery.autopager.js"}
+    %script{:type=>"text/javascript", :src=>"bootstrap/js/bootstrap.min.js"}
+    %script{:type=>"text/javascript", :src=>"gelegelescript.js"}
