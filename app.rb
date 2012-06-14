@@ -3,7 +3,6 @@ require 'rubygems'
 require 'sinatra'
 require 'logger'
 require 'net/http'
-require 'uri'
 require 'haml'
 require 'sass'
 require 'oauth'
@@ -15,24 +14,19 @@ configure do
     Log = Logger.new(STDOUT)
     if ENV["http_proxy"]
         Log.info "http_proxy ==> #{ENV["http_proxy"]}"
-        proxy_url = URI.parse(ENV["http_proxy"])
-        @http_client = Net::HTTP.Proxy(proxy_url.host, proxy_url.port)
-    else
-        @http_client = Net::HTTP
     end
 end
 
-
-before do	
-end
 
 get '/style.css' do
     sass :stylesheet
 end
 
+
 get '/' do
-    haml :form
+    haml :page_form
 end
+
 
 post '/' do
     consumer_key = params[:consumer_key]
@@ -55,6 +49,7 @@ post '/' do
     redirect authorize_url
 end
 
+
 get '/callback' do
     oauth_verifier = params[:oauth_verifier]
     Log.info "oauth_verifier===>#{oauth_verifier}"
@@ -67,7 +62,14 @@ get '/callback' do
     @consumer_secret = session["consumer_secret"]
     session.clear
 
-    haml :result
+    haml :page_result
 end
 
 
+not_found do
+    "NOT FOUND!"
+end
+
+error do
+    "ERROR!"
+end
