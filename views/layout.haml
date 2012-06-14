@@ -1,0 +1,26 @@
+!!! XML
+!!!
+%html
+  %head
+    %title Get Tumblr Access Token
+    %meta{:name=>"viewport", :content=>"width=device-width, initial-scale=1.0"}
+    %link{:href=>"bootstrap/css/bootstrap.min.css", :type=>"text/css", :rel=>"stylesheet"}
+    %link{:href=>"bootstrap/css/bootstrap-responsive.min.css", :type=>"text/css", :rel=>"stylesheet"}
+    %link{:rel=>"stylesheet", :type=>"text/css", :href=>"/style.css"}
+
+  %body
+    %div.container
+
+      %div.page-header
+        %h1
+          %a.page-title{:href=>"/"} Get Tumblr Access Token
+
+      != yield
+
+      %footer.footer
+        %p Designed and built by gelegele.
+
+    %script{:type=>"text/javascript", :src=>"jquery/jquery.js"}
+    %script{:type=>"text/javascript", :src=>"jquery/jquery.autopager.js"}
+    %script{:type=>"text/javascript", :src=>"bootstrap/js/bootstrap.min.js"}
+    %script{:type=>"text/javascript", :src=>"gelegelescript.js"}
