@@ -1,5 +1,7 @@
 %form.form-horizontal{:method=>"post", :action=>"/"}
-  %legend Input your Tumblr application's OAuth keys.
+  %legend
+    %p 1. Set the default callback URL of your app to 'http://gettumblraccesstoken.heroku.com/callback'.
+    %p 2. Input OAuth keys of your app.
   %div.control-group
     %label.control-label Consumer Key
     %div.controls
