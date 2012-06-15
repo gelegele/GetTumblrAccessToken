@@ -1,15 +1,16 @@
-%form.form-horizontal{:method=>"post", :action=>"/"}
+%form.form-horizontal{:method=>"post", :action=>"/", :width=>"500"}
   %legend
     %p 1. Set the default callback URL of your app to 'http://gettumblraccesstoken.heroku.com/callback'.
     %p 2. Input OAuth keys of your app.
+  -if @error_message
+    %div.controls.alert.alert-error #{@error_message}
   %div.control-group
     %label.control-label Consumer Key
     %div.controls
-      %input.input-xxlarge{:name=>"consumer_key"}
+      %input.input-xxlarge{:name=>"consumer_key", :value=>"#{@consumer_key}"}
   %div.control-group
     %label.control-label Consumer Secret Key
     %div.controls
-      %input.input-xxlarge{:name=>"consumer_secret"}
+      %input.input-xxlarge{:name=>"consumer_secret", :value=>"#{@consumer_secret}"}
   %div.form-actions
-    /%button.btn.btn-primary{:type=>"submit"} Request access token
     %button.btn.btn-primary{:type=>"button", :onclick=>"submitForm(this)"} Request access token
