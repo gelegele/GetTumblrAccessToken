@@ -3,16 +3,18 @@
   %div.control-group
     %label.control-label Consumer Key
     %div.controls
-      %span.input-xxlarge.uneditable-input #{@consumer_key}
+      %label.key #{@consumer_key}
   %div.control-group
     %label.control-label Consumer Secret Key
     %div.controls
-      %span.input-xxlarge.uneditable-input #{@consumer_secret}
+      %label.key #{@consumer_secret}
   %div.control-group
     %label.control-label Access Token
     %div.controls
-      %label.key #{@access_token}
+      %label.key.success 
+        %strong #{@access_token}
   %div.control-group
     %label.control-label Access Token Secret
     %div.controls
-      %label.key #{@access_token_secret}
+      %label.key.success
+        %strong #{@access_token_secret}

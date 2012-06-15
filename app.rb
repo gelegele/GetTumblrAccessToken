@@ -48,7 +48,10 @@ post '/' do
         request_token = consumer.get_request_token
     rescue => exc
         Log.warn "Fail to get_request_token. #{exc}"
-        @error_message = exc
+        @error_message = exc.to_s
+        if @error_message.index('400')
+            @error_message += ": Did you set the Default callback URL of your app?"
+        end
         @consumer_key = consumer_key
         @consumer_secret = consumer_secret
         return haml :page_form
