@@ -12,5 +12,6 @@
     %label.control-label Consumer Secret Key
     %div.controls
       %input.input-xxlarge{:name=>"consumer_secret", :value=>"#{@consumer_secret}"}
-  %div.form-actions
-    %button.btn.btn-primary{:type=>"button", :onclick=>"submitForm(this)"} Request access token
+  %div.control-group
+    %div.controls
+      %button.btn.btn-primary{:type=>"button", :onclick=>"submitForm(this)"} Request access token
